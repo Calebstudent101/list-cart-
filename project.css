@@ -25,3 +25,55 @@
   --fs-product-name: 16px;
 
 }
+body{
+    padding: 45px;
+    font-family: var(--ff-base);
+    background-color: var(--clr-rose-100);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#desserts{
+    font-weight: var(--fw-bold);
+    margin-bottom: 20px;
+    
+}
+#waffles-img{
+    width: 300px;
+    border-radius: 7px;
+}
+.add-to-cart{
+    position: absolute;
+    bottom: -20px;
+    
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 20px;
+    color: white;
+    border: 1px solid black;
+    padding: 9px 28px;
+    background-color: var(--clr-rose-50);
+    color: black;
+    font-size: 11px;
+    z-index: 3;
+    cursor: pointer;
+}
+#img-space{
+    margin-right: 5px;
+}
+.dessert-container{
+    position: relative;
+   
+}
+
+main {
+  flex: 1; /* pushes footer down by filling all remaining space */
+}
+html, body {
+  height: 100%;
+  margin: 0;
+}
