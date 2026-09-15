@@ -40,7 +40,7 @@ body{
     color: var(--clr-rose-900);
     
 }
-#waffles-img{
+.dessert-img{
     width: 300px;
     border-radius: 7px;
 }
@@ -100,5 +100,7 @@ html, body {
 }
 .grid{
     display: grid;
-    grid-template-rows: repeat(9, 1fr);
+    grid-template-columns: 300px;
+    grid-template-rows: repeat(9, auto);
+    gap: 32px;
 }
