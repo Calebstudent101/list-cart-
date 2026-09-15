@@ -47,6 +47,12 @@ body{
 .dessert-img-container{
     position: relative;
 }
+.dessert-container-1{
+    transition: transform 0.2s ease;
+}
+.dessert-container-1:hover{
+    transform: translateY(-8px);
+}
 .position-relative{
     position: relative;
 }
@@ -101,7 +107,7 @@ html, body {
 .grid{
     display: grid;
     grid-template-columns: 300px;
-    grid-template-rows: repeat(9, auto);
+    grid-template-rows: repeat(10, auto);
     gap: 32px;
 }
 
@@ -114,4 +120,32 @@ html, body {
   background-color: var(--clr-red);
   color: white;
   border-color: var(--clr-red);
+}
+
+.cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--clr-rose-50);
+    border-radius: 7px;
+    padding: 20px;
+    margin-top: 20px;
+    height: 270px;
+    padding: 20px;
+    position: relative;
+}
+
+.cart-img{
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+#h1-cart{
+    font-size: 18px;
+    color: var(--clr-red);
+    font-weight: var(--fw-bold);
+    position: absolute;
+    top: 20px;
+    left: 20px;
 }
