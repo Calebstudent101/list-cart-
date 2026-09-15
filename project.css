@@ -105,6 +105,13 @@ html, body {
     gap: 32px;
 }
 
-.dessert-img-container.selected{
-    border: 3px solid red;
+.dessert-img.selected {
+  outline: 2px solid var(--clr-red);
+  outline-offset: 2px;
+}
+
+.add-to-cart.selected {
+  background-color: var(--clr-red);
+  color: white;
+  border-color: var(--clr-red);
 }
