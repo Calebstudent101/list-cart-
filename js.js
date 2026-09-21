@@ -13,6 +13,12 @@ containers.forEach(function(container) {
     button.classList.remove('selected-2');
     button.innerHTML = button.dataset.originalHtml;
   }
+  const priceText = container.querySelector('.dessert-info-container p:nth-child(3)').textContent;
+  const price = parseFloat(priceText.replace('$', ''));
+
+  function calculateDessertPrice(price, quantity){
+    return price * quantity;
+  }
 
   function activateStepper() {
     img.classList.add('selected');
@@ -26,11 +32,15 @@ containers.forEach(function(container) {
 
     const quantityDisplay = button.querySelector('.quantity');
     let quantity = 1;
+    let itemTotal = calculateDessertPrice(price, quantity);
+    console.log(itemTotal);
 
     button.querySelector('.increment').addEventListener('click', function(e) {
       e.stopPropagation();
       quantity++;
       quantityDisplay.textContent = quantity;
+      itemTotal = calculateDessertPrice(price, quantity);
+      console.log(itemTotal);
     });
 
     button.querySelector('.decrement').addEventListener('click', function(e) {
@@ -41,6 +51,8 @@ containers.forEach(function(container) {
         deselectCard(); // quantity hit 0 — revert the whole card
       } else {
         quantityDisplay.textContent = quantity;
+        itemTotal = calculateDessertPrice(price, quantity);
+        console.log(itemTotal);
       }
     });
   }
