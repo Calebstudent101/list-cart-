@@ -6,6 +6,14 @@ containers.forEach(function(container) {
   const button = container.querySelector('.add-to-cart');
   const originalButtonHTML = button.innerHTML;
 
+  button.dataset.originalHtml = originalButtonHTML;
+
+  function deselectCard() {
+    img.classList.remove('selected');
+    button.classList.remove('selected-2');
+    button.innerHTML = button.dataset.originalHtml;
+  }
+
   function activateStepper() {
     img.classList.add('selected');
     button.classList.add('selected-2');
@@ -27,8 +35,11 @@ containers.forEach(function(container) {
 
     button.querySelector('.decrement').addEventListener('click', function(e) {
       e.stopPropagation();
-      if (quantity > 1) {
-        quantity--;
+      quantity--;
+
+      if (quantity <= 0) {
+        deselectCard(); // quantity hit 0 — revert the whole card
+      } else {
         quantityDisplay.textContent = quantity;
       }
     });
