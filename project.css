@@ -32,12 +32,14 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    
 }
 
 #desserts{
     font-weight: var(--fw-bold);
     margin-bottom: 20px;
     color: var(--clr-rose-900);
+    font-family: "Nike Futura ND", sans-serif;
     
 }
 .dessert-img{
@@ -73,6 +75,8 @@ body{
     font-size: 11px;
     z-index: 3;
     cursor: pointer;
+    width: 150px;
+    height: 37px;
 }
 .add-to-cart-img{
     margin-right: 5px;
@@ -113,7 +117,7 @@ html, body {
 
 .dessert-img.selected {
   outline: 2px solid var(--clr-red);
-  outline-offset: 2px;
+  /* outline-offset: 2px; */
 }
 
 .add-to-cart.selected {
@@ -148,4 +152,21 @@ html, body {
     position: absolute;
     top: 20px;
     left: 20px;
+}
+
+.add-to-cart.selected-2 {
+  background-color: var(--clr-red);
+  color: white;
+  justify-content: space-between;
+  padding: 9px 28px;
+}
+
+.add-to-cart.selected-2 .quantity {
+  color: white;
+  font-weight: var(--fw-semibold);
+}
+
+.add-to-cart.selected-2 img {
+  width: 10px;
+  cursor: pointer;
 }
