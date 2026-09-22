@@ -127,11 +127,12 @@ html, body {
 }
 
 .cart{
+    display: flex;
+    flex-direction: column;
     background-color: var(--clr-rose-50);
     border-radius: 7px;
     padding: 20px;
     margin-top: 20px;
-    position: relative;
     margin-bottom: 20px;
 }
 
@@ -144,9 +145,7 @@ html, body {
     font-size: 18px;
     color: var(--clr-red);
     font-weight: var(--fw-bold);
-    position: absolute;
-    top: 20px;
-    left: 20px;
+
 }
 
 .add-to-cart.selected-2 {
