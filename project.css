@@ -127,25 +127,19 @@ html, body {
 }
 
 .cart{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: var(--clr-rose-50);
     border-radius: 7px;
     padding: 20px;
     margin-top: 20px;
-    height: 270px;
-    padding: 20px;
     position: relative;
     margin-bottom: 20px;
 }
 
 .cart-img{
-    justify-content: center;
-    align-items: center;
-    
-    
+    display: block;
+    margin: 20px auto;
 }
+
 #h1-cart{
     font-size: 18px;
     color: var(--clr-red);
