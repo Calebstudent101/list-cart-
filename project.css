@@ -137,6 +137,7 @@ html, body {
     height: 270px;
     padding: 20px;
     position: relative;
+    margin-bottom: 20px;
 }
 
 .cart-img{
