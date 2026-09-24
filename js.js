@@ -1,4 +1,4 @@
-
+let cart = [];
 const containers = document.querySelectorAll('.dessert-container-1');
 
 containers.forEach(function(container) {
@@ -15,6 +15,7 @@ containers.forEach(function(container) {
   }
   const priceText = container.querySelector('.dessert-info-container p:nth-child(3)').textContent;
   const price = parseFloat(priceText.replace('$', ''));
+  const nameText = container.querySelector('.dessert-info-container p:nth-child(1)').textContent;
 
   function calculateDessertPrice(price, quantity){
     return price * quantity;
@@ -30,6 +31,27 @@ containers.forEach(function(container) {
       <img class="increment" src="assets/images/icon-increment-quantity.svg" alt="Increase quantity">
     `;
 
+    function updateCart() {
+      const existingItem = cart.find(function(item) {
+        return item.name === nameText;
+      });
+
+      if (existingItem) {
+        existingItem.quantity = quantity;
+      } else {
+        cart.push({ name: nameText, quantity: quantity, price: price });
+      }
+
+      renderCart();
+    }
+
+    function removeFromCart() {
+      cart = cart.filter(function(item) {
+        return item.name !== nameText; 
+      });
+      renderCart();
+    }
+
     const quantityDisplay = button.querySelector('.quantity');
     let quantity = 1;
     let itemTotal = calculateDessertPrice(price, quantity);
@@ -39,6 +61,7 @@ containers.forEach(function(container) {
       e.stopPropagation();
       quantity++;
       quantityDisplay.textContent = quantity;
+      updateCart();
       itemTotal = calculateDessertPrice(price, quantity);
       console.log(itemTotal);
     });
@@ -48,9 +71,11 @@ containers.forEach(function(container) {
       quantity--;
 
       if (quantity <= 0) {
-        deselectCard(); // quantity hit 0 — revert the whole card
+        deselectCard();
+        removeFromCart(); 
       } else {
         quantityDisplay.textContent = quantity;
+        updateCart();
         itemTotal = calculateDessertPrice(price, quantity);
         console.log(itemTotal);
       }
@@ -94,5 +119,18 @@ function createCartItemHTML(name, quantity, price) {
 }
 
 
-let cart = [];
+
+function renderCart() {
+  let cartHTML = '';
+  let total = 0;
+
+  cart.forEach(function(item) {
+    cartHTML += createCartItemHTML(item.name, item.quantity, item.price);
+    total += item.price * item.quantity;
+  });
+
+  document.querySelector('.cart-items').innerHTML = cartHTML;
+  document.querySelector('.cart-total').textContent = `$${total.toFixed(2)}`;
+  document.querySelector('.cart-count').textContent = cart.length;
+}
 
