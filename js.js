@@ -75,3 +75,24 @@ document.addEventListener('click', function(e) {
     });
   }
 });
+
+function createCartItemHTML(name, quantity, price) {
+  const subtotal = price * quantity;
+
+  return `
+    <div class="cart-item">
+      <div class="cart-item-details">
+        <p class="cart-item-name">${name}</p>
+        <div class="cart-item-meta">
+          <span class="cart-item-qty">${quantity}x</span>
+          <span class="cart-item-price">@ $${price.toFixed(2)}</span>
+        </div>
+      </div>
+      <span class="cart-item-subtotal">$${subtotal.toFixed(2)}</span>
+    </div>
+  `;
+}
+
+
+let cart = [];
+
